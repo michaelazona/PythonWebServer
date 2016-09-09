@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home Page</title>
+		<link rel="stylesheet" type="text/css" href="styleSheet.css">
+		<link rel="shortcut icon" type="image/x-icon" href="favico.ico" />
+	</head>
+
+	<body>
+		<script>
+		
+			function showDuck()
+			{
+				if(document.getElementById("duck").style.visibility != "visible")
+				{
+					document.getElementById("duck").style.visibility = "visible";
+					document.getElementById("duckButton").innerHTML = "Hide Duck";
+				}
+
+				else
+				{
+					document.getElementById("duck").style.visibility = "hidden";
+					document.getElementById("duckButton").innerHTML = "Show Duck";
+				}
+			}
+				
+		</script>
+
+		<img src="donald.png" id="duck" />
+
+		<div id="top">
+			<span id="header">Home Page Sample</p>
+		</div>
+
+		<div id="hLine"></div>
+
+		<div id="content">
+			<span id="header" style="color: #3C3D38">Header Text</span><br><br>
+			<hr width=85%>
+			<span id="header" style="color: #3C3D38; font-size: 18px">Words words words...</span><br>
+			<span id="header" style="color: #3C3D38; font-size: 18px">Words words words...</span><br>
+			<span id="header" style="color: #3C3D38; font-size: 18px">Words words words...</span><br>
+			<span id="header" style="color: #3C3D38; font-size: 18px">Words words words...</span><br>
+			<span id="header" style="color: #3C3D38; font-size: 18px">Words words words...</span><br>
+			<span id="header" style="color: #3C3D38; font-size: 18px">Words words words...</span><br><br><br>
+			<span id="header" style="color: #3C3D38; font-size: 22px">Click here to redirect:</span><br><br><br>
+			<a href="contentPage.html" class="button">Test Redirect</a><br><br>
+			<a id="duckButton" class="button" onclick="showDuck()">Show Duck</a><br><br><br>
+		</div><br><br>
+
+	</body>
+</html>
