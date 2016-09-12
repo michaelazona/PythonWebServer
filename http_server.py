@@ -57,6 +57,7 @@ class Server:
                 except:
                     continue
                     #unable to process request - skip and wait for next request
+                    #'continue' means to start the loop from the top
 
                 if(fileRequested == "/"):
                     fileRequested = "/index.html"
