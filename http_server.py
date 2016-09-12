@@ -94,8 +94,9 @@ class Server:
             except Exception as e:
                 print "There was an unkown error that occured: " + str(e)
 
-server = Server()
-server.start()
+if __name__ == "__main__":
+    server = Server()
+    server.start()
 
         
         
