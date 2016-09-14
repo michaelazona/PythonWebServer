@@ -67,7 +67,7 @@ class Server:
                     continue
                     #browser send second request for ico file - ignore this and return to top of loop
 
-                fileRequested = "www\\" + fileRequested[1:]
+                fileRequested = "www/" + fileRequested[1:]
                 #add HTML directory to fileRequested path and remove preceeding '/' character
 
                 if(os.path.isfile(fileRequested)):
