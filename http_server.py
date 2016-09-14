@@ -1,4 +1,6 @@
 import socket, os.path, time, datetime, signal, sys
+from datadog import statsd
+from datadog.api.constants import CheckStatus
 
 class Server:
     
@@ -45,6 +47,10 @@ class Server:
                 #accepts TCP client connection
                 
                 print "Received connection from " + clientAddress[0] + " at " + str(datetime.datetime.now()).split('.')[0]
+                statsd.increment('webserver.python.request_count')
+                statsd.set('webserver.python.users.uniques', clientAddress[0])
+                startTime = time.time()
+                #update datadog request_count and unique user metrics - start 'timer'
                 
                 clientConnection.settimeout(2)
                 message = clientConnection.recv(1024)
@@ -93,6 +99,10 @@ class Server:
 
             except Exception as e:
                 print "There was an unkown error that occured: " + str(e)
+
+            finally:
+                duration = time.time() - startTime
+                statsd.histogram('webserver.python.request.time', duration)
 
 if __name__ == "__main__":
     server = Server()
